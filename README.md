@@ -13,10 +13,12 @@
   <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/badge/style-ruff-000000.svg" alt="Ruff"></a>
 </p>
 
+> HEL = **Host Enforcement Layer**
+
 ---
 
 ## Why HEL?
-Modern AI systems call out to many model + data APIs. You need fast, explainable allow/deny decisions (and maybe a path to more sophisticated policy later) without dragging in a heavy gateway. HEL gives you:
+Modern AI systems call out to many model + data APIs. You need fast, explainable allow/deny decisions (and maybe a path to more sophisticated policy later) without dragging in a heavy gateway. The Host Enforcement Layer (HEL) gives you:
 
 | Need | HEL Answer |
 |------|------------|
