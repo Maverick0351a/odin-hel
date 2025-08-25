@@ -75,20 +75,19 @@ print(open_engine.evaluate(ctx))  # allow
 
 ```mermaid
 flowchart LR
-    A[Context dict] --> B[Extract host]
+    A[Context] --> B[Extract host]
     B --> C{Profile}
-    C -->|open| D[Allow]
-    C -->|medium| E[Check curated allowlist]
-    C -->|strict| F[Check custom allowlist]
-    E --> G{Allowed?}
-    F --> G
-    G -->|no| H[Deny Decision (reason)]
-    G -->|yes| I[Allowed so far]
-    I --> J{Rego enabled?}
-    J -->|no| K[Final Allow]
-    J -->|yes| L[OPA eval data.odin.allow]
-    L -->|true| K
-    L -->|false| H
+    C -->|open| K[Allow]
+    C -->|medium| D[Curated or custom allowlist]
+    C -->|strict| E[Custom allowlist only]
+    D --> F{Allowed?}
+    E --> F
+    F -->|no| X[Deny]
+    F -->|yes| G{Rego enabled?}
+    G -->|no| K
+    G -->|yes| H[OPA data.odin.allow]
+    H -->|true| K
+    H -->|false| X
 ```
 
 ---
